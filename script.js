@@ -1,21 +1,4 @@
 
-var flip = true;
-
-function changeTitle(){
-    if(flip){
-        flip = false;
-        document.getElementById("title").textContent = "Guess The Flag";
-    } else {
-        flip = true;
-        document.getElementById("title").textContent = "Guess The Flags";
-    }
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-    var el = document.getElementById("title");
-    el.addEventListener("click", changeTitle, false);
-});
-
 /*
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('countRowsButton').addEventListener('click', function() {
@@ -52,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return response.json();
         })
         .then(data => {
-            const button = document.getElementById('countRowsButton');
+            const button = document.getElementById('NextCountryButton');
                 button.addEventListener('click', () => {
                     if (data.length > 0) {
 

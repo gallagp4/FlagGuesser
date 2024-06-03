@@ -1,7 +1,19 @@
+:root{
+    --base:#01204E;
+    --txt:#F6DCAC;
+    --buttons:#028391;
+    --buttons2:#035f69;
+    --other:#FEAE6F;
+    --other2:#c48554;
+}
+
+
+
 *{
-    color: rgb(186, 169, 169);
-    background-color: rgb(73, 72, 83);
+    color: var(--txt);
+    background-color: var(--base);
     text-align: center;
+
 }
 
 h1{
@@ -9,12 +21,52 @@ h1{
 }
 
 
-.buttonStyle{
-    background-color: bisque;
-    color: black;
+.buttonStyle:hover{
+    background-color: var(--buttons2) ;
+    color: var(--txt)
 }
 
-.buttonStyle:hover{
-    background-color: black  ;
-    color: bisque;
+.Options{
+    display: grid;
+    grid-template-columns: repeat(2, 200px);
+    grid-template-rows: repeat(2, 80px);
+    gap: 15px;
+    justify-content: center;
+    align-content: center;
+    margin-top: 20px;
+    
+}
+
+.buttonStyle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--buttons);
+    color: var(--txt);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px; /* Optional: adds rounded corners */
+    transition: background-color 0.3s;
+}
+
+#NextCountryButton{
+    background-color: var(--other);
+    color: var(--base);
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    height: 50px;
+    width: 150px;
+    text-align: center;
+}
+
+.NextButton{
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#NextCountryButton:hover{
+    background-color: var(--other2);
 }

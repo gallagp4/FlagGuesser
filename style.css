@@ -1,10 +1,13 @@
 :root{
     --base:#01204E;
+    --base2:#011432;
     --txt:#F6DCAC;
     --buttons:#028391;
     --buttons2:#035f69;
     --other:#FEAE6F;
     --other2:#c48554;
+    --correct:green;
+    --incorrect:red;
 }
 
 
@@ -18,6 +21,7 @@
 
 h1{
     font-size: 50px;
+
 }
 
 

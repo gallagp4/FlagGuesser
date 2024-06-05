@@ -20,12 +20,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });*/
 
+let correctAnswer = 0;
+let currentScore = 0;
+
 document.addEventListener('DOMContentLoaded', function() {
     const buttons = [
-        document.getElementById('OptionA'),
-        document.getElementById('OptionB'),
-        document.getElementById('OptionC'),
-        document.getElementById('OptionD')
+        document.getElementById('Option0'),
+        document.getElementById('Option1'),
+        document.getElementById('Option2'),
+        document.getElementById('Option3')
     ];
     fetch('Flags/flags.json')
         .then(response => {
@@ -37,11 +40,13 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             const button = document.getElementById('NextCountryButton');
                 button.addEventListener('click', () => {
+
                     if (data.length > 0) {
 
                         const usedIndices = new Set();
                         buttons.forEach(button =>
                             {
+                                this.style.backgroundColor = #028391;
                                 let randomIndex;
                                 do{
                                     randomIndex = Math.floor(Math.random()* data.length);
@@ -54,22 +59,22 @@ document.addEventListener('DOMContentLoaded', function() {
                             }
                         ) 
 
-                        let correctAnswer = Math.floor(Math.random()* 4);
+                        correctAnswer = Math.floor(Math.random()* 4);
                         if(correctAnswer === 0)
                             {
-                                document.getElementById("TheFlag").src = data[document.getElementById('OptionA').value].URL;
+                                document.getElementById("TheFlag").src = data[document.getElementById('Option0').value].URL;
                             }
                         else if (correctAnswer === 1)
                             {
-                                document.getElementById("TheFlag").src = data[document.getElementById('OptionB').value].URL;
+                                document.getElementById("TheFlag").src = data[document.getElementById('Option1').value].URL;
                             }
                         else if (correctAnswer === 2)
                             {
-                                document.getElementById("TheFlag").src = data[document.getElementById('OptionC').value].URL;
+                                document.getElementById("TheFlag").src = data[document.getElementById('Option2').value].URL;
                             }
                         else if (correctAnswer === 3)
                             {
-                                document.getElementById("TheFlag").src = data[document.getElementById('OptionD').value].URL;
+                                document.getElementById("TheFlag").src = data[document.getElementById('Option3').value].URL;
                             }
 
                         
@@ -98,4 +103,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 });
+
+function handleButtonClick(buttonID)
+{
+    
+    if(Number(buttonID.slice(-1))===Number(correctAnswer))
+        {
+            currentScore += 1;
+            document.getElementById("title").innerHTML = "Score: " + currentScore;
+            document.getElementById(buttonID).style.backgroundColor = "green";
+        }
+    else
+        {
+            currentScore = 0;
+            document.getElementById("title").innerHTML = "Score: " + currentScore;
+        }
+}
 

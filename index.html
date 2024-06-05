@@ -3,23 +3,25 @@
 
 <head>
 	<title> Flags </title>
-	<link href = 'style.css' rel = 'stylesheet'>
+	<link href = 'style.css?v=1.0' rel = 'stylesheet'>
 
 </head>
 
 <body>
-	<h1 id ="title"> Guess The Flag</h1>
+	<h1 id ="title"> Score: 0</h1>
 
 	<div>
 		<img id="TheFlag" src = "Flags\testFlag.jpg" width = "400" height = "250">
 		
 	</div>
 
+	
+
 	<div class="Options">
-		<button id="OptionA" class="buttonStyle">Ireland</button>
-		<button id="OptionB" class="buttonStyle">Not Ireland</button>
-		<button id="OptionC" class="buttonStyle">Not Ireland</button>
-		<button id="OptionD" class="buttonStyle">Not Ireland</button>
+		<button id="Option0" class="buttonStyle" onclick="handleButtonClick(this.id)">Ireland</button>
+		<button id="Option1" class="buttonStyle" onclick="handleButtonClick(this.id)">Not Ireland</button>
+		<button id="Option2" class="buttonStyle" onclick="handleButtonClick(this.id)">Not Ireland</button>
+		<button id="Option3" class="buttonStyle" onclick="handleButtonClick(this.id)">Not Ireland</button>
 
 
 	</div>
@@ -27,7 +29,7 @@
 	<div class="NextButton">
 		<button id="NextCountryButton"> Next Country: </button>
 	</div>
-	<script src="script.js"></script>
+	<script src="script.js?v=1.0"></script>
 </body>
 
 </html>

@@ -63,12 +63,15 @@ h1{
     height: 50px;
     width: 150px;
     text-align: center;
+    font-size: 20px;
+    border-radius: 5px
 }
 
 .NextButton{
     justify-content: center;
     align-items: center;
     margin-top: 20px;
+   
 }
 
 #NextCountryButton:hover{

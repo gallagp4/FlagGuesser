@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 let correctAnswer = 0;
 let currentScore = 0;
+let isRestart = false;
 
 document.addEventListener('DOMContentLoaded', function() {
     const buttons = [
@@ -40,15 +41,25 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(data => {
             const button = document.getElementById('NextCountryButton');
-
+            buttons.forEach(button =>
+                {
+                    button.style.display = "none";
+                })
                 button.addEventListener('click', () => {
 
                     if (data.length > 0) {
 
                         const usedIndices = new Set();
-                        document.getElementById("NextCountryButton").innerHTML = "Next Country";
+                        document.getElementById("NextCountryButton").style.display = "none";
+                        //document.getElementById("NextCountryButton").innerHTML = "Next Country";
+                        if(isRestart)
+                            {
+                                document.getElementById("title").innerHTML = "Score: " + currentScore;
+                                isRestart = false;
+                            }
                         buttons.forEach(button =>
                             {
+                                button.style.display = "inline";
                                 button.style.backgroundColor = "#028391";
                                 let randomIndex;
                                 do{
@@ -115,13 +126,17 @@ function handleButtonClick(buttonID)
             currentScore += 1;
             document.getElementById("title").innerHTML = "Score: " + currentScore;
             document.getElementById(buttonID).style.backgroundColor = "green";
+            document.getElementById("NextCountryButton").style.display = "inline";
+            document.getElementById("NextCountryButton").innerHTML = "Next Country";
         }
     else
         {
             currentScore = 0;
-            document.getElementById("title").innerHTML = "Score: " + currentScore;
+            
             document.getElementById(buttonID).style.backgroundColor = "red";
+            document.getElementById("NextCountryButton").style.display = "inline";
             document.getElementById("NextCountryButton").innerHTML = "Retry";
+            isRestart = true;
         }
 }
 

@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         const usedIndices = new Set();
                         buttons.forEach(button =>
                             {
-                                this.style.backgroundColor = #028391;
+                                //this.style.backgroundColor = #028391;
                                 let randomIndex;
                                 do{
                                     randomIndex = Math.floor(Math.random()* data.length);

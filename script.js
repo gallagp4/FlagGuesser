@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('Option2'),
         document.getElementById('Option3')
     ];
+    document.getElementById("NextCountryButton").innerHTML = "Start!";
     fetch('Flags/flags.json')
         .then(response => {
             if (!response.ok) {
@@ -39,14 +40,16 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(data => {
             const button = document.getElementById('NextCountryButton');
+
                 button.addEventListener('click', () => {
 
                     if (data.length > 0) {
 
                         const usedIndices = new Set();
+                        document.getElementById("NextCountryButton").innerHTML = "Next Country";
                         buttons.forEach(button =>
                             {
-                                //this.style.backgroundColor = #028391;
+                                button.style.backgroundColor = "#028391";
                                 let randomIndex;
                                 do{
                                     randomIndex = Math.floor(Math.random()* data.length);
@@ -117,6 +120,8 @@ function handleButtonClick(buttonID)
         {
             currentScore = 0;
             document.getElementById("title").innerHTML = "Score: " + currentScore;
+            document.getElementById(buttonID).style.backgroundColor = "red";
+            document.getElementById("NextCountryButton").innerHTML = "Retry";
         }
 }
 
